@@ -223,6 +223,42 @@ class MinecraftSkin
         return $el;
     }
 
+    /**
+     * Get left leg's images
+     *
+     * @return SkinElement
+     * @throws SkinException
+     */
+    public function getHead(): SkinElement
+    {
+        $block_size = $this->getBlockSize();
+
+        $el = new SkinElement();
+
+        $el->front  = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
+        $el->left   = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
+        $el->right  = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
+        $el->back   = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
+        $el->top    = $this->createEmptyImg(1 * $block_size, 1 * $block_size);
+        $el->bottom = $this->createEmptyImg(1 * $block_size, 1 * $block_size);
+
+        // Right
+        imagecopyresampled($el->right, $this->skin, 0, 0, 1 * $block_size, 0 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+        // Front
+        imagecopyresampled($el->front, $this->skin, 0, 0, 1 * $block_size, 1 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+        // Left
+        imagecopyresampled($el->left, $this->skin, 0, 0, 1 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+        // Back
+        imagecopyresampled($el->back, $this->skin, 0, 0, 1 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+
+        // Top
+        imagecopyresampled($el->top, $this->skin, 0, 0, 0 * $block_size, 1 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+        // Bottom
+        imagecopyresampled($el->bottom, $this->skin, 0, 0, 0 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+
+        return $el;
+    }
+
     /******************************************/
 
     /**
