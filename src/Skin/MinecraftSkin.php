@@ -103,7 +103,7 @@ class MinecraftSkin
         // Front
         imagecopyresampled($el->front, $this->skin, 0, 0, 1 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
         // Left
-        imagecopyresampled($el->back, $this->skin, 0, 0, 2 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($el->left, $this->skin, 0, 0, 2 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
         // Back
         imagecopyresampled($el->back, $this->skin, 0, 0, 3 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
@@ -139,7 +139,7 @@ class MinecraftSkin
         // Front
         imagecopyresampled($el->front, $this->skin, 0, 0, 11 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
         // Left
-        imagecopyresampled($el->back, $this->skin, 0, 0, 12 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($el->left, $this->skin, 0, 0, 12 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
         // Back
         imagecopyresampled($el->back, $this->skin, 0, 0, 13 * $block_size, 5 * $block_size, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
