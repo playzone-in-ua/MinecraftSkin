@@ -80,6 +80,16 @@ class MinecraftSkin
     }
 
     /**
+     * Get old skin image
+     *
+     * @return resource
+     */
+    public function getOldSkin()
+    {
+        return imagecrop($this->skin, ['x' => 0, 'y' => 0, 'width' => $this->width, 'height' => ($this->height < $this->width) ? $this->height : $this->width / 2]);
+    }
+
+    /**
      * Get right leg's images
      *
      * @return SkinElement
