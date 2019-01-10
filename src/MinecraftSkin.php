@@ -22,7 +22,7 @@ class MinecraftSkin
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadPNG(String $filename): void
+    public function loadPNG(\String $filename): void
     {
         $skin = imagecreatefrompng($filename);
         if ($skin === false) {
@@ -38,7 +38,7 @@ class MinecraftSkin
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadString(String $strImage): void
+    public function loadString(\String $strImage): void
     {
         $skin = imagecreatefromstring($strImage);
         if ($skin === false) {
@@ -54,7 +54,7 @@ class MinecraftSkin
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadBase64(String $base64Image): void
+    public function loadBase64(\String $base64Image): void
     {
         $strImg = base64_decode($base64Image);
 
@@ -163,13 +163,13 @@ class MinecraftSkin
      */
     private function createEmptyImg(int $width, int $height)
     {
-        $img = imagecreatetruecolor($width, $width);
+        $img = imagecreatetruecolor($width, $height);
         if ($img === false) {
             throw new SkinException ('Can\'t create empty image.');
         }
         imagealphablending($img, false);
         $col = imagecolorallocatealpha($img, 255, 255, 255, 127);
-        imagefilledrectangle($img, 0, 0, $width, $width, $col);
+        imagefilledrectangle($img, 0, 0, $width, $height, $col);
         imagealphablending($img, true);
 
         return $img;
@@ -247,7 +247,7 @@ class MinecraftSkin
      *
      * @throws SkinException
      */
-    private function convertSkinToSquare(): void
+    public function convertSkinToSquare(): void
     {
 
 
