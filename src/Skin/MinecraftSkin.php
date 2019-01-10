@@ -167,10 +167,10 @@ class MinecraftSkin
         if ($img === false) {
             throw new SkinException ('Can\'t create empty image.');
         }
+        imagesavealpha($img, true);
         imagealphablending($img, false);
         $col = imagecolorallocatealpha($img, 255, 255, 255, 127);
         imagefilledrectangle($img, 0, 0, $width, $height, $col);
-        imagealphablending($img, true);
 
         return $img;
     }
