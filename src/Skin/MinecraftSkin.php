@@ -235,12 +235,12 @@ class MinecraftSkin
 
         $el = new SkinElement();
 
-        $el->front  = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
-        $el->left   = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
-        $el->right  = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
-        $el->back   = $this->createEmptyImg(1 * $block_size, 3 * $block_size);
-        $el->top    = $this->createEmptyImg(1 * $block_size, 1 * $block_size);
-        $el->bottom = $this->createEmptyImg(1 * $block_size, 1 * $block_size);
+        $el->front  = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
+        $el->left   = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
+        $el->right  = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
+        $el->back   = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
+        $el->top    = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
+        $el->bottom = $this->createEmptyImg(2 * $block_size, 2 * $block_size);
 
         // Right
         imagecopyresampled($el->right, $this->skin, 0, 0, 2 * $block_size, 0 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
@@ -314,7 +314,7 @@ class MinecraftSkin
         imagealphablending($skin, false);
         imagesavealpha($skin, true);
 
-        $this->skin   = $skin;
+        $this->skin = $skin;
 
         $this->convertSkinToSquare();
     }
