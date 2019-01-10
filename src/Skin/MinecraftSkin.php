@@ -249,7 +249,7 @@ class MinecraftSkin
         // Left
         imagecopyresampled($el->left, $this->skin, 0, 0, 2 * $block_size, 4 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
         // Back
-        imagecopyresampled($el->back, $this->skin, 0, 0, 2 * $block_size, 4 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
+        imagecopyresampled($el->back, $this->skin, 0, 0, 2 * $block_size, 6 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
 
         // Top
         imagecopyresampled($el->top, $this->skin, 0, 0, 0 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size, 2 * $block_size);
