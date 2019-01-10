@@ -6,8 +6,8 @@ namespace Playzone\Skin\Exceptions;
 
 class SkinBadSizeException extends SkinException
 {
-    public function __construct()
+    public function __construct(int $width, int $height)
     {
-        parent::__construct('Bad skin size');
+        parent::__construct('Bad skin size: '.$width.'x'.$height);
     }
 }

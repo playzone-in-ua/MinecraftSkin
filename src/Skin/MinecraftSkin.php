@@ -197,7 +197,7 @@ class MinecraftSkin
         $height = imagesx($skin);
 
         if (!$this->isSkinSizeCorrect($width, $height)) {
-            throw new SkinBadSizeException();
+            throw new SkinBadSizeException($width, $height);
         }
         $this->width  = $width;
         $this->height = $height;
