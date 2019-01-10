@@ -83,12 +83,13 @@ class MinecraftSkin
      * Get old skin image
      *
      * @return resource
+     * @throws SkinException
      */
     public function getOldSkin()
     {
-        $oldSkin = imagecrop($this->skin, ['x' => 0, 'y' => 0, 'width' => $this->width, 'height' => ($this->height < $this->width) ? $this->height : $this->width / 2]);
-        imagealphablending($oldSkin, false);
-        imagesavealpha($oldSkin, true);
+        $height  = ($this->height < $this->width) ? $this->height : $this->width / 2;
+        $oldSkin = $this->createEmptyImg($this->width, $height);
+        imagecopyresampled($oldSkin, $this->skin, 0, 0, 0, 0, $this->width, $height, $this->width, $height);
         return $oldSkin;
     }
 
