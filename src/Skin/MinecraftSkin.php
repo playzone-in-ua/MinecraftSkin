@@ -18,11 +18,11 @@ class MinecraftSkin
     /**
      * Load skin image from PNG file
      *
-     * @param String $filename
+     * @param string $filename
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadPNG(\String $filename): void
+    public function loadPNG(string $filename): void
     {
         $skin = imagecreatefrompng($filename);
         if ($skin === false) {
@@ -34,11 +34,11 @@ class MinecraftSkin
     /**
      * Load skin image from string
      *
-     * @param String $strImage
+     * @param string $strImage
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadString(\String $strImage): void
+    public function loadString(string $strImage): void
     {
         $skin = imagecreatefromstring($strImage);
         if ($skin === false) {
@@ -50,11 +50,11 @@ class MinecraftSkin
     /**
      * Load skin data from BASE64 encoded string
      *
-     * @param String $base64Image
+     * @param string $base64Image
      * @throws SkinBadSizeException
      * @throws SkinException
      */
-    public function loadBase64(\String $base64Image): void
+    public function loadBase64(string $base64Image): void
     {
         $strImg = base64_decode($base64Image);
 
