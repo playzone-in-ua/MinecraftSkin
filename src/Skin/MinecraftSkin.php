@@ -201,6 +201,7 @@ class MinecraftSkin
         }
         $this->width  = $width;
         $this->height = $height;
+        imagealphablending($skin, true);
         $this->skin   = $skin;
     }
 
