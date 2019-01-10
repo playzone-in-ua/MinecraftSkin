@@ -86,10 +86,9 @@ class MinecraftSkin
      */
     public function getOldSkin()
     {
-
-        imagesavealpha($this->skin, true);
-        imagealphablending($this->skin, false);
         $oldSkin = imagecrop($this->skin, ['x' => 0, 'y' => 0, 'width' => $this->width, 'height' => ($this->height < $this->width) ? $this->height : $this->width / 2]);
+        imagealphablending($oldSkin, false);
+        imagesavealpha($oldSkin, true);
         return $oldSkin;
     }
 
