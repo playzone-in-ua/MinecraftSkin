@@ -265,7 +265,7 @@ class MinecraftSkin
 
         $img = $this->createEmptyImg($this->width, $this->width);
 
-        imagecopyresampled($img, $this->skin, 0, 0, 0, 0, $this->width, $this->width, $this->width, $this->height);
+        imagecopyresampled($img, $this->skin, 0, 0, 0, 0, $this->width, $this->height, $this->width, $this->height);
 
         // Copy the right side of the leg
         imagecopyresampled($img, $leg->right, 4 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
