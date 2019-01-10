@@ -193,8 +193,8 @@ class MinecraftSkin
      */
     private function processSkinImage($skin): void
     {
-        $width  = imagesy($skin);
-        $height = imagesx($skin);
+        $width  = imagesx($skin);
+        $height = imagesy($skin);
 
         if (!$this->isSkinSizeCorrect($width, $height)) {
             throw new SkinBadSizeException($width, $height);
