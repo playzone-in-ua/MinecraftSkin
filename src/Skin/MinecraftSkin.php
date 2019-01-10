@@ -279,18 +279,31 @@ class MinecraftSkin
         // Copy the back side of the leg
         imagecopyresampled($img, $leg->back, 7 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
+        // Copy the top side of the leg
+        imagecopyresampled($img, $leg->top, 5 * $block_size, 12 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+
+        // Copy the bottom side of the leg
+        imagecopyresampled($img, $leg->bottom, 6 * $block_size, 12 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+
 
         // Copy the right side of the arm
-        imagecopyresampled($img, $arm->right, 4 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($img, $arm->right, 8 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the front side of the arm
-        imagecopyresampled($img, $arm->front, 5 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($img, $arm->front, 9 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the left side of the arm
-        imagecopyresampled($img, $arm->left, 6 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($img, $arm->left, 10 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the back side of the arm
-        imagecopyresampled($img, $arm->back, 7 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($img, $arm->back, 11 * $block_size, 13 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+
+        // Copy the top side of the arm
+        imagecopyresampled($img, $arm->top, 9 * $block_size, 12 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+
+        // Copy the bottom side of the arm
+        imagecopyresampled($img, $arm->bottom, 10 * $block_size, 12 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+
 
         imagesavealpha($img, true);
 
