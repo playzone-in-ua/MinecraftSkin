@@ -3,6 +3,7 @@
     "description": "Minecraft skin functions",
     "type": "library",
     "license": "GPLv2",
+    "minimum-stability": "alpha",
     "authors": [
         {
             "name": "Softer",
