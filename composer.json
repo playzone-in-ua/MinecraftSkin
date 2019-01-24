@@ -2,7 +2,7 @@
     "name": "playzone/mincraft-skin",
     "description": "Minecraft skin functions",
     "type": "library",
-    "license": "GPLv2",
+    "license": "MIT",
     "minimum-stability": "alpha",
     "authors": [
         {
