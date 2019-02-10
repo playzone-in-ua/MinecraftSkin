@@ -428,56 +428,78 @@ class MinecraftSkin
         $arm = $this->getRightArm();
 
 
-        $img = $this->createEmptyImg($this->width, $this->width);
+        $img     = $this->createEmptyImg($this->width, $this->width);
         $leftArm = $this->createEmptyImg(4 * $block_size, 4 * $block_size);
         $leftLeg = $this->createEmptyImg(4 * $block_size, 4 * $block_size);
+
+        $right  = $leg->right;
+        $front  = $leg->front;
+        $left   = $leg->left;
+        $back   = $leg->back;
+        $top    = $leg->top;
+        $bottom = $leg->bottom;
+
+        imageflip($right, IMG_FLIP_HORIZONTAL);
+        imageflip($front, IMG_FLIP_HORIZONTAL);
+        imageflip($left, IMG_FLIP_HORIZONTAL);
+        imageflip($back, IMG_FLIP_HORIZONTAL);
+        imageflip($top, IMG_FLIP_HORIZONTAL);
+        imageflip($bottom, IMG_FLIP_HORIZONTAL);
+
 
         imagecopyresampled($img, $this->skin, 0, 0, 0, 0, $this->width, $this->height, $this->width, $this->height);
 
         // Copy the right side of the leg
-        imagecopyresampled($leftLeg, $leg->right, 0 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftLeg, $left, 0 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the front side of the leg
-        imagecopyresampled($leftLeg, $leg->front, 1 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftLeg, $front, 1 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the left side of the leg
-        imagecopyresampled($leftLeg, $leg->left, 2 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftLeg, $right, 2 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the back side of the leg
-        imagecopyresampled($leftLeg, $leg->back, 3 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftLeg, $back, 3 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the top side of the leg
-        imagecopyresampled($leftLeg, $leg->top, 1 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+        imagecopyresampled($leftLeg, $top, 1 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
 
         // Copy the bottom side of the leg
-        imagecopyresampled($leftLeg, $leg->bottom, 2 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
-
-        // Mirroring image
-        imageflip($leftLeg, IMG_FLIP_HORIZONTAL);
+        imagecopyresampled($leftLeg, $bottom, 2 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
 
         imagecopyresampled($img, $leftLeg, 4 * $block_size, 12 * $block_size, 0, 0, 4 * $block_size, 4 * $block_size, 4 * $block_size, 4 * $block_size);
 
+        $right  = $arm->right;
+        $front  = $arm->front;
+        $left   = $arm->left;
+        $back   = $arm->back;
+        $top    = $arm->top;
+        $bottom = $arm->bottom;
+
+        imageflip($right, IMG_FLIP_HORIZONTAL);
+        imageflip($front, IMG_FLIP_HORIZONTAL);
+        imageflip($left, IMG_FLIP_HORIZONTAL);
+        imageflip($back, IMG_FLIP_HORIZONTAL);
+        imageflip($top, IMG_FLIP_HORIZONTAL);
+        imageflip($bottom, IMG_FLIP_HORIZONTAL);
 
         // Copy the right side of the arm
-        imagecopyresampled($leftArm, $arm->right, 0 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftArm, $left, 0 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the front side of the arm
-        imagecopyresampled($leftArm, $arm->front, 1 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftArm, $front, 1 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the left side of the arm
-        imagecopyresampled($leftArm, $arm->left, 2 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftArm, $right, 2 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the back side of the arm
-        imagecopyresampled($leftArm, $arm->back, 3 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
+        imagecopyresampled($leftArm, $back, 3 * $block_size, 1 * $block_size, 0, 0, 1 * $block_size, 3 * $block_size, 1 * $block_size, 3 * $block_size);
 
         // Copy the top side of the arm
-        imagecopyresampled($leftArm, $arm->top, 1 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
+        imagecopyresampled($leftArm, $top, 1 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
 
         // Copy the bottom side of the arm
-        imagecopyresampled($leftArm, $arm->bottom, 2 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
-
-        // Mirroring image
-        imageflip($leftArm, IMG_FLIP_HORIZONTAL);
+        imagecopyresampled($leftArm, $bottom, 2 * $block_size, 0 * $block_size, 0, 0, 1 * $block_size, 1 * $block_size, 1 * $block_size, 1 * $block_size);
 
         imagecopyresampled($img, $leftArm, 8 * $block_size, 12 * $block_size, 0, 0, 4 * $block_size, 4 * $block_size, 4 * $block_size, 4 * $block_size);
 
