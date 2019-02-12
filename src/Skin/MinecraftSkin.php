@@ -410,6 +410,92 @@ class MinecraftSkin
     }
 
     /**
+     * Get front preview
+     *
+     * @param int $width
+     * @param int $height
+     * @return resource
+     * @throws SkinException
+     */
+    public function getFrontPreview(int $width, int $height)
+    {
+        $block_size_w = (int)($width / 4);
+        $block_size_h = (int)($height / 8);
+        $head         = $this->getHead()->front;
+        $body         = $this->getBody()->front;
+        $leftArm      = $this->getLeftArm()->front;
+        $rightArm     = $this->getRightArm()->front;
+        $leftLeg      = $this->getLeftLeg()->front;
+        $rightLeg     = $this->getRightLeg()->front;
+
+
+        $preview = $this->createEmptyImg($block_size_w * 4, $block_size_h * 8);
+
+        // Head
+        imagecopyresized($preview, $head, 1 * $block_size_w, 0, 0, 0, 2 * $block_size_w, 2 * $block_size_h, imagesx($head), imagesy($head));
+
+        // Right arm
+        imagecopyresized($preview, $rightArm, 0, 2 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightArm), imagesy($rightArm));
+
+        // Left arm
+        imagecopyresized($preview, $leftArm, 3 * $block_size_w, 2 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightArm), imagesy($rightArm));
+
+        // Body
+        imagecopyresized($preview, $body, 1 * $block_size_w, 2 * $block_size_h, 0, 0, 2 * $block_size_w, 3 * $block_size_h, imagesx($body), imagesy($body));
+
+        // Right leg
+        imagecopyresized($preview, $rightLeg, 1 * $block_size_w, 5 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightLeg), imagesy($rightLeg));
+
+        // Left leg
+        imagecopyresized($preview, $leftLeg, 2 * $block_size_w, 5 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightLeg), imagesy($rightLeg));
+
+        return $preview;
+    }
+
+    /**
+     * Get back preview
+     *
+     * @param int $width
+     * @param int $height
+     * @return resource
+     * @throws SkinException
+     */
+    public function getBackPreview(int $width, int $height)
+    {
+        $block_size_w = (int)($width / 4);
+        $block_size_h = (int)($height / 8);
+        $head         = $this->getHead()->back;
+        $body         = $this->getBody()->back;
+        $leftArm      = $this->getLeftArm()->back;
+        $rightArm     = $this->getRightArm()->back;
+        $leftLeg      = $this->getLeftLeg()->back;
+        $rightLeg     = $this->getRightLeg()->back;
+
+
+        $preview = $this->createEmptyImg($block_size_w * 4, $block_size_h * 8);
+
+        // Head
+        imagecopyresized($preview, $head, 1 * $block_size_w, 0, 0, 0, 2 * $block_size_w, 2 * $block_size_h, imagesx($head), imagesy($head));
+
+        // Left arm
+        imagecopyresized($preview, $leftArm, 0, 2 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightArm), imagesy($rightArm));
+
+        // Right arm
+        imagecopyresized($preview, $rightArm, 3 * $block_size_w, 2 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightArm), imagesy($rightArm));
+
+        // Body
+        imagecopyresized($preview, $body, 1 * $block_size_w, 2 * $block_size_h, 0, 0, 2 * $block_size_w, 3 * $block_size_h, imagesx($body), imagesy($body));
+
+        // Left leg
+        imagecopyresized($preview, $leftLeg, 1 * $block_size_w, 5 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightLeg), imagesy($rightLeg));
+
+        // Right leg
+        imagecopyresized($preview, $rightLeg, 2 * $block_size_w, 5 * $block_size_h, 0, 0, 1 * $block_size_w, 3 * $block_size_h, imagesx($rightLeg), imagesy($rightLeg));
+
+        return $preview;
+    }
+
+    /**
      * Convert skin format from 1:2 to 1:1
      *
      * @throws SkinException
